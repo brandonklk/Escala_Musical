@@ -1,48 +1,63 @@
-class Scales {
+import 'dart:io';
 
-  static const scalesMajor = <String, Interval>{
-    'C': Interval.Whole,
-    'Cs': Interval.Whole,
-    'D': Interval.Half,
-    'Ds': Interval.Whole,
-    'E': Interval.Whole,
-    'F': Interval.Whole,
-    'Fs': Interval.Half,
-    'G': Interval.Whole,
-    'Gs': Interval.Whole,
-    'A': Interval.Whole,
-    'As': Interval.Whole,
-    'B': Interval.Whole,
+  var scalesMajor = {
+    'C': Interval.Bigger,   
+    'D': Interval.Bigger,  
+    'E': Interval.Bigger,
+    'F': Interval.Bigger,  
+    'G': Interval.Bigger,  
+    'A': Interval.Bigger,   
+    'B': Interval.Bigger,
   };
 
-    static const scalesMinor = <String, Interval>{
-    'C': Interval.Whole,
-    'Cs': Interval.Whole,
-    'D': Interval.Whole,
-    'Ds': Interval.Whole,
-    'E': Interval.Whole,
-    'F': Interval.Whole,
-    'Fs': Interval.Whole,
-    'G': Interval.Whole,
-    'Gs': Interval.Whole,
-    'A': Interval.Whole,
-    'As': Interval.Whole,
-    'B': Interval.Whole,
+ var scalesMinor = {   
+    'Cs': Interval.Smaller,
+    'Ds': Interval.Smaller,
+    'Fs': Interval.Smaller,
+    'Gs': Interval.Smaller,
+    'As': Interval.Smaller,
   };
-}
-
-void funcMusicalNotes(){
-   List<String> listMusicalNotas = ["C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B"];
-   listMusicalNotas.forEach((x){
-     print(x);
-   });
-}
 
 enum Interval { 
-   Half, 
-   Whole, 
-   WholeAndHalf,
+   Bigger, 
+   Smaller
 }
 
-void main(){
+Function funcMusicalNotes(){
+   List<String> listMusicalNotas = ["C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B"];
+   print(listMusicalNotas);
+   //listMusicalNotas.forEach((x){
+   //  print(x);
+   //});
+   
+}
+
+main(){
+print("Todas as notas musicais são as seguintes");
+funcMusicalNotes();
+print("");
+
+print("Escala musical: ");
+var escala = stdin.readLineSync();
+
+  if(escala.isNotEmpty){
+    if((escala == 1) | (escala == 2)){
+      switch (escala){
+        case '1':
+          print("A escala maior é");
+          print(scalesMajor.keys);
+          break;
+
+        case '2':
+          print("A escala menor é");
+          print(scalesMinor.keys);
+          break; 
+      } 
+    }else{
+      print("Valor inserido $escala não é valido, tente 1 ou 2");
+    }
+  }else{
+    print("Nenhum valor foi preenchido");
+  }
+
 }
