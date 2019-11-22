@@ -1,9 +1,10 @@
 import 'dart:io';
 import "package:test/test.dart";
+
  
  
 main(){
- 
+
 print("Escala musica: ");
 var escala = stdin.readLineSync().toUpperCase();
 
@@ -125,5 +126,6 @@ test("Testa a letra B ", () {
       
       expect(escala, list_items_B[0]); 
 }); 
+
 
 }

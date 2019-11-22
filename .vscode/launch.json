@@ -6,7 +6,11 @@
     "configurations": [
         {
             "name": "Dart",
+<<<<<<< HEAD
             "program": "C:\\diversos\\dart\\Escala_Musical\\main.dart",
+=======
+            "program": "C:\\Users\\breno\\OneDrive\\Documents\\brendo\\dart_programas\\main.dart",
+>>>>>>> 07917934cbe378ad37746e49b256a73cdb2403c3
             "request": "launch",
             "type": "dart"
         }
