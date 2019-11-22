@@ -1,63 +1,129 @@
 import 'dart:io';
-
-  var scalesMajor = {
-    'C': Interval.Bigger,   
-    'D': Interval.Bigger,  
-    'E': Interval.Bigger,
-    'F': Interval.Bigger,  
-    'G': Interval.Bigger,  
-    'A': Interval.Bigger,   
-    'B': Interval.Bigger,
-  };
-
- var scalesMinor = {   
-    'Cs': Interval.Smaller,
-    'Ds': Interval.Smaller,
-    'Fs': Interval.Smaller,
-    'Gs': Interval.Smaller,
-    'As': Interval.Smaller,
-  };
-
-enum Interval { 
-   Bigger, 
-   Smaller
-}
-
-Function funcMusicalNotes(){
-   List<String> listMusicalNotas = ["C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B"];
-   print(listMusicalNotas);
-   //listMusicalNotas.forEach((x){
-   //  print(x);
-   //});
-   
-}
-
+import "package:test/test.dart";
+ 
+ 
 main(){
-print("Todas as notas musicais são as seguintes");
-funcMusicalNotes();
-print("");
+ 
+print("Escala musica: ");
+var escala = stdin.readLineSync().toUpperCase();
 
-print("Escala musical: ");
-var escala = stdin.readLineSync();
+var listMusicalNotas = ["C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B"];
+var newlistMuscial = List.from(listMusicalNotas);
 
-  if(escala.isNotEmpty){
-    if((escala == 1) | (escala == 2)){
-      switch (escala){
-        case '1':
-          print("A escala maior é");
-          print(scalesMajor.keys);
-          break;
+   listMusicalNotas.forEach((index){  
+     if(index == escala){        
+         print("\nA escala: ${escala} menor é, ${newlistMuscial[0]},${newlistMuscial[1]},${newlistMuscial[2]},${newlistMuscial[4]},${newlistMuscial[6]},${newlistMuscial[8]},${newlistMuscial[0]}");
+         print("A escala: ${escala} maior é, ${newlistMuscial[0]},${newlistMuscial[2]},${newlistMuscial[3]},${newlistMuscial[5]},${newlistMuscial[7]},${newlistMuscial[9]},${newlistMuscial[0]}\n");
+         return true;
+     }else{
+         var valueIndex = index.toString();
+         newlistMuscial.remove(index.toString());
+         newlistMuscial.add(valueIndex.toString());
+         return false;
+     }
+   });
 
-        case '2':
-          print("A escala menor é");
-          print(scalesMinor.keys);
-          break; 
-      } 
-    }else{
-      print("Valor inserido $escala não é valido, tente 1 ou 2");
-    }
-  }else{
-    print("Nenhum valor foi preenchido");
-  }
+
+
+
+
+
+
+test("Testa a letra C ", () { 
+   
+   var b = "C";
+   var list_items_C = ["C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B"];
+      
+      expect(b, list_items_C[0]); 
+}); 
+
+ test("Testa a letra Cs ", () { 
+     
+   var list_items_Cs = ["Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B", "C"];
+   var escala = "Cs";
+      
+      expect(escala, list_items_Cs[0]); 
+}); 
+
+ test("Testa a letra D ", () { 
+     
+   var list_items_D = ["D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B", "C", "Cs"];
+   var escala = "D";
+      
+      expect(escala, list_items_D[0]); 
+}); 
+
+ test("Testa a letra Ds ", () { 
+     
+   var list_items_Ds = ["Ds", "E", "F", "Fs", "G", "Gs","A", "As", "B", "C", "Cs", "D"];
+   var escala = "Ds";
+      
+      expect(escala, list_items_Ds[0]); 
+}); 
+
+
+ test("Testa a letra E ", () { 
+     
+   var list_items_E = ["E", "F", "Fs", "G", "Gs","A", "As", "B", "C", "Cs", "D", "Ds"];
+   var escala = "E";
+      
+      expect(escala, list_items_E[0]); 
+}); 
+
+ test("Testa a letra F ", () { 
+     
+   var list_items_F = ["F", "Fs", "G", "Gs","A", "As", "B", "C", "Cs", "D", "Ds", "E"];
+   var escala = "F";
+      
+      expect(escala, list_items_F[0]); 
+}); 
+
+ test("Testa a letra Fs ", () { 
+     
+   var list_items_Fs = ["Fs", "G", "Gs","A", "As", "B", "C", "Cs", "D", "Ds", "E", "F"];
+   var escala = "Fs";
+      
+      expect(escala, list_items_Fs[0]); 
+}); 
+
+ test("Testa a letra G ", () { 
+     
+   var list_items_G = ["G", "Gs","A", "As", "B", "C", "Cs", "D", "Ds", "E", "F", "Fs"];
+   var escala = "G";
+      
+      expect(escala, list_items_G[0]); 
+}); 
+
+test("Testa a letra Gs ", () { 
+     
+   var list_items_Gs = ["Gs","A", "As", "B", "C", "Cs", "D", "Ds", "E", "F", "Fs", "G"];
+   var escala = "Gs";
+      
+      expect(escala, list_items_Gs[0]); 
+}); 
+
+test("Testa a letra A ", () { 
+     
+   var list_items_A = ["A", "As", "B","C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs"];
+   var escala = "A";
+      
+      expect(escala, list_items_A[0]); 
+}); 
+
+test("Testa a letra As ", () { 
+     
+   var list_items_As = ["As", "B", "C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A"];
+   var escala = "As";
+      
+      expect(escala, list_items_As[0]); 
+}); 
+
+test("Testa a letra B ", () { 
+     
+   var list_items_B = ["B","C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs","A", "As"];
+   var escala = "B";
+      
+      expect(escala, list_items_B[0]); 
+}); 
 
 }
